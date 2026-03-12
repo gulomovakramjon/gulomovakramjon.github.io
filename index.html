@@ -228,6 +228,54 @@
     .blog-topic { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 16px; border-radius: 50px; background: rgba(255,255,255,0.06); color: #aaa; border: 1px solid rgba(255,255,255,0.1); }
     @media(max-width: 900px) { .blog-layout { grid-template-columns: 1fr; gap: 50px; } #blog { padding: 80px 24px; } }
 
+    /* IELTS SECTION */
+    #ielts { padding: 120px 50px; background: var(--dark); color: #fff; position: relative; overflow: hidden; }
+    #ielts::before {
+      content: 'IELTS';
+      position: absolute; bottom: -40px; left: -20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(120px, 20vw, 260px);
+      color: rgba(255,255,255,0.03);
+      pointer-events: none; user-select: none; line-height: 1;
+    }
+    .ielts-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .ielts-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
+    .ielts-scores { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ielts-score-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 28px 24px;
+      position: relative; overflow: hidden;
+      transition: background 0.3s, transform 0.3s, border-color 0.3s;
+    }
+    .ielts-score-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); border-color: rgba(232,162,58,0.3); }
+    .ielts-score-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+    .ielts-score-card:hover::after { transform: scaleX(1); }
+    .ielts-skill-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #666; margin-bottom: 14px; }
+    .ielts-score-num { font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 1; color: var(--accent); }
+    .ielts-score-num span { font-size: 56px; color: var(--accent); }
+    .ielts-bar-wrap { margin-top: 12px; height: 4px; background: rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; }
+    .ielts-bar { height: 100%; border-radius: 10px; background: linear-gradient(90deg, var(--accent), #f0b545); width: 0; transition: width 1.4s cubic-bezier(.22,.68,0,1.2); }
+    .ielts-overall { display: inline-flex; align-items: center; gap: 20px; background: var(--accent); border-radius: 20px; padding: 24px 32px; margin-bottom: 32px; }
+    .ielts-overall-num { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; color: #fff; }
+    .ielts-overall-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: #fff; }
+    .ielts-overall-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 5px; letter-spacing: 0.06em; }
+    .ielts-info-text { font-size: 15px; color: #aaa; line-height: 1.85; }
+    .ielts-info-text strong { color: #fff; }
+    .ielts-features { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .ielts-feature { display: flex; align-items: center; gap: 14px; font-size: 14px; color: #aaa; padding: 14px 18px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; transition: background 0.3s, border-color 0.3s; }
+    .ielts-feature:hover { background: rgba(255,255,255,0.07); border-color: rgba(232,162,58,0.2); }
+    .ielts-feature-icon { font-size: 20px; flex-shrink: 0; }
+    .ielts-feature strong { color: #fff; }
+    .ielts-cta { margin-top: 32px; display: inline-flex; align-items: center; gap: 10px; background: transparent; border: 1.5px solid var(--accent); color: var(--accent); padding: 14px 28px; border-radius: 50px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-decoration: none; text-transform: uppercase; transition: background 0.25s, color 0.25s, transform 0.25s; }
+    .ielts-cta:hover { background: var(--accent); color: #fff; transform: scale(1.04); }
+    @media(max-width:900px) { .ielts-layout { grid-template-columns: 1fr; gap: 50px; } #ielts { padding: 80px 24px; } }
+
     /* ANIMATIONS */
     .fade-up { opacity: 0; transform: translateY(40px); animation: fadeUp 0.9s cubic-bezier(.22,.68,0,1.2) forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
@@ -271,6 +319,7 @@
       <li><a href="#about">Men haqimda</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#skills">Ko'nikmalar</a></li>
+      <li><a href="#ielts">IELTS & Dars</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#education">Ta'lim</a></li>
     </ul>
@@ -318,7 +367,7 @@
         <h2 class="section-heading" data-reveal>MENING<br>HIKOYAM</h2>
         <p class="about-text" data-reveal>
           Men <strong>online marketing va grafik dizayn</strong> bo'yicha kerakli ko'nikmalarni o'rganayotgan talabaman. Dizaynga qiziqib qoldim, chunki mahsulotlarning odamlarning ehtiyojiga bog'liq bo'lishini <strong>vizual tarzda ko'rsatishni</strong> xohlayman.<br><br>
-          Mijozlarga mahsulotni yaxshiroq bilishga yordam beradigan <strong>bannerlar va posterlar</strong> yaratdim. Asosan <strong>Canva</strong> ilovasida ishlayman.
+          Mijozlar uchun e'tiborni tortuvchi <strong>bannerlar, posterlar va kreativ vizual kontentlar</strong> ishlab chiqaraman. Vizual kontentlarni yaratishda <strong>Sun'iy intellekt</strong> vositalaridan unumli foydalanaman — to'g'ri prompt yozish orqali professional darajadagi dizaynlar ishlab chiqaraman.
         </p>
       </div>
       <div>
@@ -357,7 +406,7 @@
         <div class="skill-card featured" data-reveal>
           <div class="skill-icon">🎨</div>
           <div class="skill-title">Grafik Dizayn</div>
-          <div class="skill-desc">Canva yordamida professional bannerlar, posterlar va brand materiallar yarataman. Mahsulot vizualizatsiyasi va reklama dizayni.</div>
+          <div class="skill-desc">Sun'iy intellekt vositalari yordamida professional bannerlar, posterlar va brand materiallar yarataman. To'g'ri prompt orqali yuqori sifatli vizual kontent ishlab chiqarish.</div>
         </div>
         <div class="skill-card" data-reveal>
           <div class="skill-icon">📢</div>
@@ -404,11 +453,11 @@
         </div>
         <div class="lang-item">
           <span class="lang-flag">🇷🇺</span>
-          <div><div class="lang-name">Rus tili</div><div class="lang-level">O'rganilmoqda</div></div>
+          <div><div class="lang-name">Rus tili</div><div class="lang-level">O'rta daraja</div></div>
         </div>
         <div class="lang-item">
           <span class="lang-flag">🇰🇷</span>
-          <div><div class="lang-name">Koreys tili</div><div class="lang-level">O'rganilmoqda</div></div>
+          <div><div class="lang-name">Koreys tili</div><div class="lang-level">Boshlang'ich daraja</div></div>
         </div>
         <div class="lang-item">
           <span class="lang-flag">🇸🇦</span>
@@ -477,11 +526,85 @@
     </div>
   </section>
 
+  <!-- IELTS & TEACHING -->
+  <section id="ielts">
+    <div class="ielts-inner">
+      <p class="section-label" data-reveal>IELTS & Online Ta'lim</p>
+      <h2 class="section-heading" data-reveal>IELTS VA<br>DARS BERISH</h2>
+
+      <div class="ielts-layout">
+
+        <!-- Left: Teaching info -->
+        <div data-reveal>
+          <div class="ielts-overall">
+            <div class="ielts-overall-num">7.0</div>
+            <div>
+              <div class="ielts-overall-title">IELTS Overall Band</div>
+              <div class="ielts-overall-sub">Ikki marta tasdiqlangan · 2× Certified</div>
+            </div>
+          </div>
+
+          <p class="ielts-info-text">
+            IELTS imtihonida <strong>7.0 band</strong> natijasini ikki marta tasdiqlagan holda, ingliz tili va IELTS bo'yicha <strong>online darslar</strong> olib boraman. Darslar <strong>o'zbek tilida</strong> tushuntiriladi — har bir o'quvchining darajasiga qarab moslashtiriladi.
+          </p>
+
+          <div class="ielts-features">
+            <div class="ielts-feature">
+              <span class="ielts-feature-icon">🎯</span>
+              <div><strong>IELTS tayyorlov kursi</strong> — strategiya, vaqt boshqaruvi, band ko'tarish usullari</div>
+            </div>
+            <div class="ielts-feature">
+              <span class="ielts-feature-icon">💬</span>
+              <div><strong>Ko'p darajali darslar</strong> — Boshlang'ichdan ilg'orgacha (A1–C1)</div>
+            </div>
+            <div class="ielts-feature">
+              <span class="ielts-feature-icon">🌐</span>
+              <div><strong>Online format</strong> — qulay jadval, individual yondashuv</div>
+            </div>
+            <div class="ielts-feature">
+              <span class="ielts-feature-icon">🇺🇿</span>
+              <div><strong>O'zbek tilida tushuntirish</strong> — tushunish oson, natija tez</div>
+            </div>
+          </div>
+
+          <a href="#contact" class="ielts-cta">Darsga yozilish &#x2192;</a>
+        </div>
+
+        <!-- Right: Score cards -->
+        <div>
+          <div class="ielts-scores">
+            <div class="ielts-score-card" data-reveal data-ielts-bar="96">
+              <div class="ielts-skill-label">Listening</div>
+              <div class="ielts-score-num">7<span>.5</span></div>
+              <div class="ielts-bar-wrap"><div class="ielts-bar" style="--bar-w:96%"></div></div>
+            </div>
+            <div class="ielts-score-card" data-reveal data-ielts-bar="89">
+              <div class="ielts-skill-label">Reading</div>
+              <div class="ielts-score-num">7<span>.0</span></div>
+              <div class="ielts-bar-wrap"><div class="ielts-bar" style="--bar-w:89%"></div></div>
+            </div>
+            <div class="ielts-score-card" data-reveal data-ielts-bar="89">
+              <div class="ielts-skill-label">Speaking</div>
+              <div class="ielts-score-num">7<span>.0</span></div>
+              <div class="ielts-bar-wrap"><div class="ielts-bar" style="--bar-w:89%"></div></div>
+            </div>
+            <div class="ielts-score-card" data-reveal data-ielts-bar="81">
+              <div class="ielts-skill-label">Writing</div>
+              <div class="ielts-score-num">6<span>.5</span></div>
+              <div class="ielts-bar-wrap"><div class="ielts-bar" style="--bar-w:81%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <div class="edu-inner">
       <p class="section-label" data-reveal>Ta'lim</p>
-      <h2 class="section-heading" data-reveal style="color:var(--dark);font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,68px);line-height:0.92;margin-bottom:40px;">O'QUV YURTI</h2>
+      <h2 class="section-heading" data-reveal style="color:var(--dark);font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,68px);line-height:0.92;margin-bottom:40px;">TA'LIM MUASSASASI</h2>
       <div class="edu-card" data-reveal>
         <div class="edu-year">2025</div>
         <div class="edu-content">
@@ -558,11 +681,101 @@
     </div>
   </section>
 
+  <!-- IELTS & TEACHING -->
+  <section id="ielts">
+    <div class="ielts-inner">
+      <p class="section-label" data-reveal>Ta'lim & Imtihon</p>
+      <h2 class="section-heading" data-reveal>IELTS &<br>ONLINE DARS</h2>
+
+      <div class="ielts-layout">
+
+        <!-- LEFT: info + features -->
+        <div data-reveal>
+          <div class="ielts-overall">
+            <div class="ielts-overall-num">7.0</div>
+            <div>
+              <div class="ielts-overall-title">IELTS Overall Band</div>
+              <div class="ielts-overall-sub">× 2 MARTA TASDIQLANGAN</div>
+            </div>
+          </div>
+
+          <p class="ielts-info-text">
+            Men <strong>IELTS va ko'p darajali ingliz tili darslarini</strong> online formatda o'qitaman. 
+            Har bir o'quvchiga individual yondashuv bilan, <strong>amaliy va natijaga yo'naltirilgan</strong> 
+            dars rejasi tuzaman. Boshlang'ichdan yuqori darajagacha barcha saviyalar bilan ishlayman.
+          </p>
+
+          <div class="ielts-features">
+            <div class="ielts-feature">
+              <span class="ielts-feature-icon">🎯</span>
+              <span><strong>IELTS tayyorlov kursi</strong> — Barcha to'rt ko'nikma bo'yicha intensiv mashg'ulot</span>
+            </div>
+            <div class="ielts-feature">
+              <span class="ielts-feature-icon">📱</span>
+              <span><strong>Online formatda</strong> — Zoom / Telegram orqali qulay vaqtda</span>
+            </div>
+            <div class="ielts-feature">
+              <span class="ielts-feature-icon">📊</span>
+              <span><strong>Ko'p darajali darslar</strong> — Beginner dan Advanced gacha barcha saviyalar</span>
+            </div>
+            <div class="ielts-feature">
+              <span class="ielts-feature-icon">✍️</span>
+              <span><strong>Individual reja</strong> — Har bir o'quvchi uchun maxsus dastur tuziladi</span>
+            </div>
+          </div>
+
+          <a href="https://t.me/gulomjonov_akramjon" target="_blank" class="ielts-cta">
+            Darsga yozilish &#x2192;
+          </a>
+        </div>
+
+        <!-- RIGHT: score cards -->
+        <div>
+          <div class="ielts-scores" data-reveal>
+
+            <div class="ielts-score-card" data-reveal data-ielts-bar="96">
+              <div class="ielts-skill-label">Listening</div>
+              <div class="ielts-score-num">7.5<span>/9</span></div>
+              <div class="ielts-bar-wrap"><div class="ielts-bar"></div></div>
+            </div>
+
+            <div class="ielts-score-card" data-reveal data-ielts-bar="78">
+              <div class="ielts-skill-label">Reading</div>
+              <div class="ielts-score-num">7.0<span>/9</span></div>
+              <div class="ielts-bar-wrap"><div class="ielts-bar"></div></div>
+            </div>
+
+            <div class="ielts-score-card" data-reveal data-ielts-bar="78">
+              <div class="ielts-skill-label">Speaking</div>
+              <div class="ielts-score-num">7.0<span>/9</span></div>
+              <div class="ielts-bar-wrap"><div class="ielts-bar"></div></div>
+            </div>
+
+            <div class="ielts-score-card" data-reveal data-ielts-bar="72">
+              <div class="ielts-skill-label">Writing</div>
+              <div class="ielts-score-num">6.5<span>/9</span></div>
+              <div class="ielts-bar-wrap"><div class="ielts-bar"></div></div>
+            </div>
+
+          </div>
+
+          <!-- Badge row -->
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;" data-reveal>
+            <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(232,162,58,0.1);border:1px solid rgba(232,162,58,0.25);color:var(--accent);font-size:12px;font-weight:600;letter-spacing:0.08em;padding:9px 18px;border-radius:50px;">🏅 Band 7.0 × 2</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(91,79,232,0.1);border:1px solid rgba(91,79,232,0.25);color:var(--accent2);font-size:12px;font-weight:600;letter-spacing:0.08em;padding:9px 18px;border-radius:50px;">🌐 Online Dars</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#aaa;font-size:12px;font-weight:600;letter-spacing:0.08em;padding:9px 18px;border-radius:50px;">📈 Multilevel</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
       <p class="section-label" style="color:var(--accent)" data-reveal>Aloqa</p>
-      <h2 class="contact-heading" data-reveal>KELING<br><span>GAPLASHAYLIK</span></h2>
+      <h2 class="contact-heading" data-reveal>LOYIHANGIZNI<br><span>BOSHLAYLIK</span></h2>
       <p class="contact-sub" data-reveal>Dizayn loyihasi, IELTS bo'yicha maslahat yoki hamkorlik uchun bog'laning.</p>
       <div class="contact-links" data-reveal>
         <a href="https://t.me/gulomjonov_akramjon" target="_blank" class="contact-btn primary">
@@ -612,6 +825,12 @@
         if (e.isIntersecting) {
           e.target.style.transitionDelay = (i % 4) * 0.1 + 's';
           e.target.classList.add('revealed');
+          // Animate IELTS bars
+          const bar = e.target.querySelector('.ielts-bar');
+          if (bar) {
+            const w = e.target.getAttribute('data-ielts-bar') || '0';
+            setTimeout(() => { bar.style.width = w + '%'; }, 200);
+          }
         }
       });
     }, { threshold: 0.15 });
